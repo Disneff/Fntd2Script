@@ -1,4 +1,4 @@
-if game.GameId ~= 114152854986754 or game.GameId ~= 133443056609787 then
+if game.GameId ~= 114152854986754 and game.GameId ~= 133443056609787 then
     game.Players.LocalPlayer:Kick("This script is only for FNTD2.")
     return
 end
