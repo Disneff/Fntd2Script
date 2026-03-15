@@ -1,0 +1,18 @@
+if game.GameId ~= 114152854986754 or game.GameId ~= 133443056609787 then
+    game.Players.LocalPlayer:Kick("This script is only for FNTD2.")
+    return
+end
+
+if game.GameId == 114152854986754 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Disneff/Fntd2Script/refs/heads/main/GameDo"))()
+
+elseif game.GameId == 133443056609787 then
+    
+    
+end
+
+    v1.GameUniverseId = 114152854986754
+    v1.LobbyUniverseId = 133443056609787
+    v1.TradingNormalUniverseId = 97228334425884
+    v1.TradingProUniverseId = 128233292939254
+    v1.IdleUniverseId = 75109552026594
