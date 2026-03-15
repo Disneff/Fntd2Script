@@ -1,0 +1,91 @@
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+
+local LobbyNight = 1
+local LobbyLevel = 1
+local LobbyDifficulty = "Easy"
+local LobbyEndless = false
+
+local Window = Fluent:CreateWindow({
+    Title = "Zynqt Hub",
+    SubTitle = "FNTD2",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(580, 460),
+    Acrylic = false,
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftControl
+})
+
+local Tabs = {
+    Lobby = Window:AddTab({ Title = "Lobbys", Icon = "" }),
+}
+
+Tabs.Lobby:AddButton({
+    Title = "Confirm lobby",
+    Description = "",
+    Callback = function()
+        local args = {
+            {
+                Difficulty = LobbyDifficulty,
+                Night = LobbyNight,
+                Tutorial = false,
+                ElevatorIndex = 7,
+                Level = LobbyLevel,
+                Endless = LobbyEndless,
+                MaxMembers = 1
+            }
+        }
+        game:GetService("ReplicatedStorage")
+            :WaitForChild("Shared")
+            :WaitForChild("Packages")
+            :WaitForChild("_Index")
+            :WaitForChild("sleitnick_net@0.2.0")
+            :WaitForChild("net")
+            :WaitForChild("RE/CreateElevator")
+            :FireServer(unpack(args))
+    end
+})
+
+-- Endless Toggle
+local LobbyEndlessToggle = Tabs.Lobby:AddToggle("Endless", {
+    Title = "Endless",
+    Default = false
+})
+LobbyEndlessToggle:OnChanged(function(value)
+    LobbyEndless = value
+end)
+
+-- Night Dropdown
+local NightDropdown = Tabs.Lobby:AddDropdown("Night", {
+    Title = "Game",
+    Values = {"1", "2", "3", "4"},
+    Multi = false,
+    Default = 1,
+})
+NightDropdown:OnChanged(function(value)
+    LobbyNight = tonumber(value)
+end)
+
+-- Level Dropdown
+local LevelDropdown = Tabs.Lobby:AddDropdown("Level", {
+    Title = "Night",
+    Values = {"1", "2", "3", "4", "5", "6"},
+    Multi = false,
+    Default = 1,
+})
+LevelDropdown:OnChanged(function(value)
+    LobbyLevel = tonumber(value)
+end)
+
+
+local DifficultyDropdown = Tabs.Lobby:AddDropdown("Difficulty", {
+    Title = "Difficulty",
+    Values = {"Easy", "Nightmare"},
+    Multi = false,
+    Default = 1,
+})
+
+DifficultyDropdown:OnChanged(function(value)
+    LobbyDifficulty = value
+end)
