@@ -1,12 +1,12 @@
-if game.GameId ~= 114152854986754 and game.GameId ~= 133443056609787 then
+if game.GameId ~= 7934320560 then
     game.Players.LocalPlayer:Kick("This script is only for FNTD2.")
     return
 end
 
-if game.GameId == 114152854986754 then
+if game.PlaceId == 80550384527033 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Disneff/Fntd2Script/refs/heads/main/GameDo"))()
 
-elseif game.GameId == 133443056609787 then
+elseif game.PlaceId == 70400654680508 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Disneff/Fntd2Script/refs/heads/main/Lobby"))()
     
 end
