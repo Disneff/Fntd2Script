@@ -3,10 +3,4 @@ if game.GameId ~= 7934320560 then
     return
 end
 
-if game.PlaceId == 80550384527033 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Disneff/Fntd2Script/refs/heads/main/GameDo"))()
-
-elseif game.PlaceId == 70400654680508 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Disneff/Fntd2Script/refs/heads/main/Lobby"))()
-    
-end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Disneff/Fntd2Script/refs/heads/main/Lobby"))()
